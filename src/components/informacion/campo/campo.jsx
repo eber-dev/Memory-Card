@@ -10,6 +10,17 @@ function Campo() {
         return idAleatorio;
     };
 
+    const clickeado = () => {
+        const barajeado = [...pokemons];
+
+        for (let i = barajeado.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [barajeado[i], barajeado[j]] = [barajeado[j], barajeado[i]];
+        }
+
+        setPokemons(barajeado);
+    };
+
     useEffect(() => {
         const fetchPokemon = async () => {
             try {
@@ -45,7 +56,7 @@ function Campo() {
     return loading ? (
         <p>Cargando....</p>
     ) : (
-        <div className={style.tablero}>
+        <div onClick={clickeado} className={style.tablero}>
             {pokemons.map((pokemon, i) => (
                 <div key={i} className={style.carta}>
                     <img
