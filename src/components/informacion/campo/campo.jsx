@@ -56,9 +56,9 @@ function Campo() {
     return loading ? (
         <p>Cargando....</p>
     ) : (
-        <div onClick={clickeado} className={style.tablero}>
+        <div className={style.tablero}>
             {pokemons.map((pokemon, i) => (
-                <div key={i} className={style.carta}>
+                <div key={i} className={style.carta} onClick={clickeado}>
                     <img
                         src={pokemon.sprites.front_default}
                         alt={pokemon.name}
