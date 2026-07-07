@@ -1,7 +1,7 @@
 import style from './campo.module.css';
 import { useEffect, useState } from 'react';
 
-function Campo() {
+function Campo({ onCartaClick }) {
     const [pokemons, setPokemons] = useState([]);
     const [loading, setLoading] = useState(true);
 
@@ -18,6 +18,7 @@ function Campo() {
             [barajeado[i], barajeado[j]] = [barajeado[j], barajeado[i]];
         }
 
+        onCartaClick();
         setPokemons(barajeado);
     };
 
