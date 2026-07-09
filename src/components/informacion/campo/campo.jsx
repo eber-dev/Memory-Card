@@ -10,8 +10,9 @@ function Campo({ onCartaClick }) {
         return idAleatorio;
     };
 
-    const clickeado = () => {
+    const clickeado = (id) => {
         const barajeado = [...pokemons];
+        console.log(id);
 
         for (let i = barajeado.length - 1; i > 0; i--) {
             const j = Math.floor(Math.random() * (i + 1));
@@ -29,7 +30,7 @@ function Campo({ onCartaClick }) {
                 const data_convertido = [];
 
                 setLoading(true);
-                for (let i = 0; i < 10; i++) {
+                for (let i = 0; i < 6; i++) {
                     promesas.push(
                         fetch(
                             `https://pokeapi.co/api/v2/pokemon/${generarIdAleatorio()}`,
@@ -39,7 +40,7 @@ function Campo({ onCartaClick }) {
 
                 const data = await Promise.all(promesas);
 
-                for (let i = 0; i < 10; i++) {
+                for (let i = 0; i < 6; i++) {
                     data_convertido.push(await data[i].json());
                 }
 
@@ -59,7 +60,11 @@ function Campo({ onCartaClick }) {
     ) : (
         <div className={style.tablero}>
             {pokemons.map((pokemon, i) => (
-                <div key={i} className={style.carta} onClick={clickeado}>
+                <div
+                    key={i}
+                    className={style.carta}
+                    onClick={() => clickeado(pokemon.id)}
+                >
                     <img
                         src={pokemon.sprites.front_default}
                         alt={pokemon.name}
