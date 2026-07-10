@@ -5,9 +5,21 @@ import Campo from './campo/campo';
 
 function Informacion() {
     const [puntaje, setPuntaje] = useState(0);
+    const [seleccionado, setSeleccionado] = useState([]);
 
-    const aumentarPuntaje = () => {
-        setPuntaje((p) => p + 1);
+    const aumentarPuntaje = (id) => {
+        if (seleccionado.length == 0) {
+            setSeleccionado([...seleccionado, id]);
+            setPuntaje((p) => p + 1);
+        } else {
+            if (seleccionado.includes(id)) {
+                setPuntaje(0);
+                setSeleccionado([]);
+            } else {
+                setSeleccionado([...seleccionado, id]);
+                setPuntaje((p) => p + 1);
+            }
+        }
     };
 
     return (
