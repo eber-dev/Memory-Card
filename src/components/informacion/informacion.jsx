@@ -33,6 +33,13 @@ function Informacion() {
 
     return (
         <div className={style.caja}>
+            <div className={style.titulos}>
+                <h1>🎮 Memory Card</h1>
+                <h3>
+                    Pon a prueba tu memoria. Selecciona todas las cartas sin
+                    repetir ninguna.
+                </h3>
+            </div>
             <Marcador score={puntaje} bestscore={mayorpuntaje} />
             <Campo onCartaClick={aumentarPuntaje} />
         </div>
