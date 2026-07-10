@@ -6,6 +6,7 @@ import Campo from './campo/campo';
 function Informacion() {
     const [puntaje, setPuntaje] = useState(0);
     const [seleccionado, setSeleccionado] = useState([]);
+    const [mayorpuntaje, setMayorpuntaje] = useState(0);
 
     const aumentarPuntaje = (id) => {
         if (seleccionado.length == 0) {
@@ -13,6 +14,14 @@ function Informacion() {
             setPuntaje((p) => p + 1);
         } else {
             if (seleccionado.includes(id)) {
+                if (mayorpuntaje == 0) {
+                    setMayorpuntaje(puntaje);
+                }
+
+                if (puntaje > mayorpuntaje) {
+                    setMayorpuntaje(puntaje);
+                }
+
                 setPuntaje(0);
                 setSeleccionado([]);
             } else {
@@ -23,8 +32,8 @@ function Informacion() {
     };
 
     return (
-        <div>
-            <Marcador score={puntaje} />
+        <div className={style.caja}>
+            <Marcador score={puntaje} bestscore={mayorpuntaje} />
             <Campo onCartaClick={aumentarPuntaje} />
         </div>
     );
