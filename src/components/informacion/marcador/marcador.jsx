@@ -1,9 +1,10 @@
 import style from './marcador.module.css';
 
-function Marcador({ score }) {
+function Marcador({ score, bestscore }) {
     return (
-        <div>
+        <div className={style.marca}>
             <p>{score}</p>
+            <p>{bestscore}</p>
         </div>
     );
 }
