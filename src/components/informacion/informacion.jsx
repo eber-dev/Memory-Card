@@ -40,8 +40,10 @@ function Informacion() {
                     repetir ninguna.
                 </h3>
             </div>
-            <Marcador score={puntaje} bestscore={mayorpuntaje} />
-            <Campo onCartaClick={aumentarPuntaje} />
+            <div className={style.juego}>
+                <Marcador score={puntaje} bestscore={mayorpuntaje} />
+                <Campo onCartaClick={aumentarPuntaje} />
+            </div>
         </div>
     );
 }
