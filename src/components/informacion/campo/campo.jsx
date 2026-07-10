@@ -19,7 +19,7 @@ function Campo({ onCartaClick }) {
             [barajeado[i], barajeado[j]] = [barajeado[j], barajeado[i]];
         }
 
-        onCartaClick();
+        onCartaClick(id);
         setPokemons(barajeado);
     };
 
