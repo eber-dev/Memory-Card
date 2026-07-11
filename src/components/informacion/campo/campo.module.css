@@ -1,0 +1,35 @@
+* {
+    box-sizing: border-box;
+}
+
+.tablero {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.8rem;
+    justify-content: center;
+    width: 50%;
+}
+
+.carta {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+    align-items: center;
+    border-radius: 10px;
+    min-width: 10rem;
+    height: auto;
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+.carta:hover {
+    cursor: pointer;
+}
+
+.carta > img {
+    width: 85%;
+    height: auto;
+}
+
+.carta > p {
+    font-size: 1.5rem;
+}
