@@ -9,8 +9,10 @@ function Informacion() {
     const [mayorpuntaje, setMayorpuntaje] = useState(0);
 
     const aumentarPuntaje = (id) => {
+        const nuevoSeleccionado = [...seleccionado, id];
+
         if (seleccionado.length == 0) {
-            setSeleccionado([...seleccionado, id]);
+            setSeleccionado(nuevoSeleccionado);
             setPuntaje((p) => p + 1);
         } else {
             if (seleccionado.includes(id)) {
@@ -25,9 +27,14 @@ function Informacion() {
                 setPuntaje(0);
                 setSeleccionado([]);
             } else {
-                setSeleccionado([...seleccionado, id]);
+                setSeleccionado(nuevoSeleccionado);
                 setPuntaje((p) => p + 1);
             }
+        }
+
+        if (nuevoSeleccionado.length == 6) {
+            alert('Ganaste');
+            document.location.reload();
         }
     };
 
