@@ -14,11 +14,20 @@
 }
 
 .titulos {
+    font-family: 'Fredoka', sans-serif;
     display: flex;
     flex-direction: column;
     width: 100%;
     align-items: center;
-    background-color: rgba(255, 255, 255, 0.6);
+    background-color: rgba(255, 255, 255, 0.7);
+}
+
+.titulos > h1 {
+    font-weight: 400;
+}
+
+.titulos > h3 {
+    font-weight: 400;
 }
 
 .juego {

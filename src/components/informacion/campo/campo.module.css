@@ -11,6 +11,7 @@
 }
 
 .carta {
+    font-family: 'Fredoka', sans-serif;
     display: flex;
     flex-direction: column;
     border: 1px solid black;
